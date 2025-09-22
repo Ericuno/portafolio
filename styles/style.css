@@ -1,0 +1,166 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+El enlace de arriba no es necesario, porque el de abajo tiene ambas fuentes que queremos usar
+Esto pasa porque el mismo Google Fonts "recuerda" que fuentes queremos importar y las suma en
+un mismo enlace */
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root{
+    --color-primario: #000000;
+    --color-secundario: #f6f6f6;
+    --color-terciario: #22D4FD;
+    --color-hover:#272727;
+    --color-hover-menus: #007bff;
+
+    --fuente-montserrat: 'Montserrat', sans-serif;
+    --fuente-krona: 'Krona One', sans-serif;
+}
+
+* { /* El asterísco (*) se usa para hacer estos cambios de manera global */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-primario); /* rgb(0, 0, 0); Para poner hexadecimal es formato "#000000", 
+                                             para poner RGB es formato "rgb(255, 255, 255)*/
+    color: var(--color-secundario); /* #F6F6F6; Este será el color de todo lo que esté dentro de body y no tenga 
+                                    una especificación distinta */
+    /* height: 100vh; */ /* significa 100% viewport height es la altura de la ventana gráfica y ocupará toda la pantalla
+    Se comentó el codigo debido a que interfería con el tamaño del footer, impidiendo que se posicione bien el mismo. */
+    box-sizing: border-box; /* Hace que el padding y el border se incluyan en el ancho y alto total del elemento */
+}
+
+.header{
+    padding: 2% 0% 0% 15%; /* padding: arriba derecha abajo izquierda, ese es el orden que ya viene pre-definido */
+}
+
+.header__menu {
+    display: flex;
+    gap: 5rem;
+}
+
+.header__menu__link {
+    font-size: 1.5rem; /* 1rem es igual al tamaño de la fuente del elemento padre, en este caso body que es 16px por defecto */
+    font-family: var(--fuente-montserrat);
+    font-weight: 600;
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+.header__menu__link:hover {
+    color: var(--color-hover-menus);
+}
+
+.presentacion {
+    display: flex; /* Esto habilita las opciones Flexbox para mayor libertad de posicionamiento del contenido en la página */
+    align-items: center; /* Centra verticalmente */
+    padding: 6% 15%; /* El margen entre el objeto y lo demás, 10% vertical, 15% horizontal */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    gap: 82px;
+}
+
+.presentacion__contenido{
+    width: 50%; /* Este 50% representa el 50% del elemento padre, que en este caso es el main, así que ocupará la mitad del main */
+    display: flex;
+    flex-direction: column; /* Hace que los elementos hijos se acomoden en columnas (verticales), útil para evitar que se encimen */
+    gap: 2.5rem; /* Espacio entre los elementos hijos */
+}
+
+.presentacion__contenido__titulo{
+    font-size: 2.25rem;
+    font-family: var(--fuente-krona); /* Debido a que importamos la familia "Krona One" podemos usar esta font family */
+}
+
+.titulo-destaque {
+    color:var(--color-terciario)
+}
+
+.presentacion__contenido__texto{
+    font-size: 1.5rem;
+    font-family: var(--fuente-montserrat);
+}
+
+.presentacion__enlaces{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; /* Hace que los elementos hijos se acomoden en columnas (verticales), útil para evitar que se encimen */
+    align-items: center; /* Centra horizontalmente, justify-content no sirve porque ahora los ejes son verticales no horizontales
+    debido a que usamos el formato "flex-direction: column;", cambiando el "flex-direction: row;" que viene por defecto. */
+    gap: 2rem; /* Espacio entre los elementos hijos */
+    padding: 0.0625rem 0.0625rem;
+    font-size: 1rem;
+    margin: 0.3125rem;
+    font-size: 1.125rem;
+    background-color: rgba(0, 17, 165, 0.418);
+    color: rgb(255, 255, 255); /* Todo lo que no sea background y no esté indicando de forma forma será blanco */
+    border-radius: 0.625rem;
+}
+
+.presentacion__contenido__subtitulo{
+    font-family: var(--fuente-krona);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.presentacion__enlaces__link{
+    width: 50%;
+    /* background-color: rgb(0, 247, 255); */
+    text-align: center;
+    padding: 1.34375rem 0; /* padding arriba y abajo agrega 21.5px, padding izquierda y derecha agrega 0 */
+    border-radius: 0.5rem;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 600; /* Hace las letras más gruesas o "negritas", esto es posible porque la Font Montserrat tiene diferentes grosores
+    de fuente, se puede usar cualquier valor de "font-weight" entre 0 y 1000, checar Google Fonts. */
+    text-decoration: none; /* Quita el subrayado de los links */
+    color: var(--color-secundario); /* Cambia el color del texto de los links */
+    margin: 0.3125rem;
+    border: 0.125rem solid var(--color-terciario);
+    display: flex;
+    justify-content: center;
+    gap: 0.625rem;
+}
+
+.presentacion__enlaces__link:hover{ /* Esta es la sintaxis correcta, 
+    La parte :hover es una PSEUDO-CLASE que se añade al selector*/
+    background-color: var(--color-hover); /* Cambia el color de fondo cuando se pasa el mouse por encima */
+    color: var(--color-primario); /* Cambia el color del texto cuando se pasa el mouse por encima */
+    font-weight: 700; /* Cambia el grosor del texto cuando se pasa el mouse por encima */
+    border: 0.125rem solid var(--color-primario);
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa el mouse por encima */
+}
+
+.presentacion__imagen{
+    width: 50%;
+}
+
+.footer{
+    background-color: var(--color-terciario);
+    padding: 1.5rem;
+    color: var(--color-primario);
+    text-align: center;
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+@media (max-width: 1200px){ /* Aquí estamos modificando los elementos y sus propiedades cuando la pantalla sea menor a 1200px */
+
+    .header {
+        padding: 10%; /* Ajusta según sea necesario */
+    }
+
+    .header__menu {
+        justify-content: center;
+    }
+    
+    .presentacion{
+        flex-direction: column-reverse; /* Hace que la imagen aparezca al inicio y no al final */
+        padding: 5%;
+    }
+
+    .presentacion__contenido{
+        width: auto;
+    }
+}
